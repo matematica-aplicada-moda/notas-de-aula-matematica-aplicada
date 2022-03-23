@@ -1,0 +1,64 @@
+\documentclass[12pt,a4paper, oneside]{book} % Cabeçalho
+
+% Configurações da fonte
+\usepackage[utf8]{inputenc} 			% Uso de acentos
+\usepackage[T1]{fontenc}    			% Facilidades de escrita
+\usepackage[brazil]{babel}  			% Textos automáticos em português
+\usepackage{amsfonts} 				% Importante para o modo matemático
+\usepackage{amsmath}  				% Importante para o modo matemático
+\usepackage{amssymb}  				% Importante para o modo matemático
+\usepackage{amsthm}					% Importante para o modo matemático
+\usepackage{setspace}				% Espaçamento entre linhas \onehalfspace
+
+% Configurações das páginas
+\usepackage{geometry}				% Configura margens
+\geometry{top=30mm,bottom=20mm,left=30mm,right=20mm}  
+%\usepackage{hyperref} 				% Torna o índice clicável
+
+% Configurações de Imagens e Figuras
+\usepackage{graphicx} 				% Ambiente Figure
+\graphicspath{{res/img}}
+\usepackage{tikz} 					% Habilita o uso da TikZ
+
+% Configurações relacionadas à matemática
+\providecommand{\sin}{} \renewcommand{\sin}{\mathrm{sen}} 	% Renomeia o comando \sin
+\providecommand{\tan}{} \renewcommand{\tan}{\mathrm{tg}}		% Renomeia o comando \tan	
+\usepackage{cancel} 											% Linha de cancelamento de termos
+
+\usepackage{chngcntr} 										% Para o uso de counterwithin
+\theoremstyle{definition}
+\newtheorem{definition}{Definição}%[chapter]
+\newtheorem{proposition}{Proposição}%[chapter]
+\newtheorem{theorem}{Teorema}%[chapter]
+\newtheorem*{prova}{Prova}
+\newtheorem{corollary}{Corolário}
+\counterwithin*{corollary}{section}
+
+\newtheorem{example}{Exemplo} 								% Exemplos numerados
+\counterwithin*{example}{chapter}		
+\newtheorem*{solution}{Solução}
+\newtheorem{exercise}{}										% Apenas numera os exercícios na ordem
+\counterwithin*{exercise}{chapter}		
+
+% Configurações avulsas
+\usepackage[shortlabels]{enumitem} 	% Listas enumaradas personalizadas
+\usepackage{lipsum}					% Lipsum - parágrafos aleatórios
+
+
+\begin{document}
+    \frontmatter 					% Numera as páginas em algarismos romanos
+
+	\input{src/0_capa} 				% Importa texto para o local do input
+
+	\onehalfspace					% Espaçamento 1,5 entre linhas
+	
+	\tableofcontents 				% Sumário
+	
+	\mainmatter 					% Reinicia a numeração em algarismos arábicos
+
+	\include{src/1_conjuntos_numericos}
+	\include{src/2_sistema_de_medidas}
+	\include{src/3_proporcionalidade}
+	\include{src/4_porcentagem}	
+	\include{src/5_geometria_plana}
+\end{document}
